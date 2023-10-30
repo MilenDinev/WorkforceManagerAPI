@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorkforceManager.Web</name>
+    </assembly>
+    <members>
+        <member name="M:WorkforceManager.Web.Controllers.GetTokenController.Login(WorkforceManager.Models.Requests.UserLoginRequestModel)">
+            <summary>
+            Generate token given valid credentials
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.Get">
+            <summary>
+            List requests of the current user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.GetRequestsToBeProcessed">
+            <summary>
+            List requests that await to be processed by the current user - TEAM LEADER
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.GetByUser(System.Int32)">
+            <summary>
+            List all requests of a given user - ADMIN
+            </summary>
+            <param name="userId">ID of the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.GetByStatus(System.String)">
+            <summary>
+            List all requests with a given status - ADMIN
+            </summary>
+            <param name="status">Created/Awaiting/Rejected/Approved</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.GetRequest(System.Int32)">
+            <summary>
+            Get request - Requester or Admin
+            </summary>
+            <param name="requestId">ID of the request</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.Post(WorkforceManager.Models.Requests.RequestRequestModels.RequestCreateRequestModel)">
+            <summary>
+            Create request by given start and end dates, description and a type
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.CreateForUser(WorkforceManager.Models.Requests.RequestRequestModels.RequestCreateRequestModel,System.Int32)">
+            <summary>
+            Create request on behalf of another user - ADMIN
+            </summary>
+            <param name="request"></param>
+            <param name="userId">ID of the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.Submit(System.Int32)">
+            <summary>
+            Submit request for processing
+            </summary>
+            <param name="requestId">ID of the request</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.Approve(System.Int32)">
+            <summary>
+            Approve request - Approver of the request
+            </summary>
+            <param name="requestId">ID of the request</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.Reject(System.Int32)">
+            <summary>
+            Reject request - Approver of the request
+            </summary>
+            <param name="requestId">ID of the request</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.Put(WorkforceManager.Models.Requests.RequestRequestModels.RequestCreateRequestModel,System.Int32)">
+            <summary>
+            Edit a request. It is forbidden to edit request after it is approved/rejected.
+            Admin or requester.
+            </summary>
+            <param name="request"></param>
+            <param name="requestId">ID of the request</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.RequestsController.Delete(System.Int32)">
+            <summary>
+            Delete request - Admin or requester. Forbidden to delete after it is approved/rejected
+            </summary>
+            <param name="requestId">ID of the request</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.GetAll">
+            <summary>
+            List all teams
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.GetTeamById(System.Int32)">
+            <summary>
+            Get team by ID
+            </summary>
+            <param name="teamId">ID of the team</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.Post(WorkforceManager.Models.Requests.TeamRequestModels.TeamCreateRequestModel)">
+            <summary>
+            Create team by given title and description. Team leader can me instantly
+            assigned by providing valid user ID
+            </summary>
+            <param name="teamRequestModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.Put(System.Int32,System.Int32)">
+            <summary>
+            Add member to a team
+            </summary>
+            <param name="teamId">ID of the team</param>
+            <param name="userId">ID of the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.Remove(System.Int32,System.Int32)">
+            <summary>
+            Remove member from a team
+            </summary>
+            <param name="teamId">ID of the team</param>
+            <param name="userId">ID of the member</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.Put(WorkforceManager.Models.Requests.TeamRequestModels.TeamEditRequestModel,System.Int32)">
+            <summary>
+            Edit exisiting team
+            </summary>
+            <param name="teamRequestModel"></param>
+            <param name="teamId">ID of the team</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.Delete(System.Int32)">
+            <summary>
+            Delete team
+            </summary>
+            <param name="teamId">ID of the team</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.TeamsController.Promote(System.Int32,System.Int32)">
+            <summary>
+            Promote team member to team leader
+            </summary>
+            <param name="teamId">ID of the team</param>
+            <param name="userId">ID of the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.UsersController.Get">
+            <summary>
+            List all users
+            </summary>
+            <returns>List of all users</returns>
+            <response code = "200">Returns list of all users</response>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.UsersController.Post(WorkforceManager.Models.Requests.UserRequestModels.UserCreateRequestModel)">
+            <summary>
+            Create a user, providing username, first name, last name, password, email address,
+            role. Can be instantly added to a team by providing a valid team ID.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.UsersController.Put(WorkforceManager.Models.Requests.UserRequestModels.UserEditRequestModel,System.Int32)">
+            <summary>
+            Edit already existing user
+            </summary>
+            <param name="user">New data</param>
+            <param name="userId">ID of the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.UsersController.Delete(System.Int32)">
+            <summary>
+            Delete an user
+            </summary>
+            <param name="userId">ID of the user</param>
+            <returns></returns>
+            <response code = "200"></response>
+            <response code = "404"></response>
+            <response code = "409"></response>
+        </member>
+        <member name="M:WorkforceManager.Web.Controllers.UsersController.GetById(System.Int32)">
+            <summary>
+            Get an user
+            </summary>
+            <param name="userId">ID of the user</param>
+            <returns></returns>
+            <response code = "200"></response>
+            <response code = "404"></response>
+            <response code = "409"></response>
+        </member>
+    </members>
+</doc>
